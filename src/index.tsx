@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import Footer from './components/Footer/Footer'
 import reportWebVitals from './reportWebVitals';
+import LatestProducts from './components/LatestProducts/LatestProducts'
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -11,7 +12,6 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <App />
-    
     <Footer />
     
   </React.StrictMode>
