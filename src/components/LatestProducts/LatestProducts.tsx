@@ -16,7 +16,12 @@ const sliderStyle = {
 }
 
 const ViewAll = styled.p`
-  
+  text-align: right;
+  margin-right: 3rem;
+`
+const Container = styled.div`
+
+  padding: 1em;
 `
 
 
@@ -29,7 +34,7 @@ const LatestProducts = () => {
   const randomPicture = "https://api.lorem.space/image/movie?w=344&h=374"
   return (
     
-    <div style={{textAlign: "right", padding: "1em"}}>
+    <Container>
       <ViewAll>View all</ViewAll>
     <Swiper
     modules={[Navigation, Pagination]}
@@ -48,7 +53,7 @@ const LatestProducts = () => {
       <SwiperSlide style={sliderStyle}><Card imgUrl={randomPicture} title="Clothing item title" description="$50.00 USD"/></SwiperSlide>
       
     </Swiper>
-    </div>
+    </Container>
    
   );
 };
