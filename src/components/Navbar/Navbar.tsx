@@ -1,6 +1,9 @@
 import React from 'react';
 import styled from "styled-components";
-import { FaAdn } from "react-icons/fa";
+import { FaRegHeart } from "react-icons/fa";
+import { FaRegUserCircle } from "react-icons/fa";
+import { FaCartArrowDown } from "react-icons/fa";
+import { FaSearch } from "react-icons/fa";
 
 
 
@@ -45,22 +48,48 @@ const Navbar: React.FC = () => {
   
   
 `;
+const RightSideSearch = styled.div`
+height:50px;
+background-color:#494949E5;
+width:20vw;
+font-size: 1.3em;
+text-align:center;
+justify-content:center;
+align-items:center;
+display:flex;
 
+
+`;
 const RightSideDiv = styled.div`
 height:50px;
 background-color:#494949E5;
 width:25vw;
 display:flex;
-justify-content:center;
-
+text-align:center;
+color:white;
+text-decoration: underline; 
+   
 
 `;
 
 
+const RightSideIconer = styled.div`
+height:50px;
+width:15vw;
+background-color:#494949E5;
+color:white;
+font-size: 1.6em;
+text-align:center;
+justify-content:center;
+align-items:center;
+display:flex;
 
 
 
 
+
+
+`;
 
 
 
@@ -95,17 +124,25 @@ justify-content:center;
         </Menu>
 
         <RightSideDiv>
-          <h4>Search</h4>
+            <RightSideSearch>
 
-          <FaAdn/>
-        
+              <FaSearch/> 
+              <h5>Search</h5>
+             
+             
+        </RightSideSearch>
+
+        <RightSideIconer>
+            <FaRegHeart/>
+            <FaRegUserCircle/>
+        <FaCartArrowDown/>
+          
+        </RightSideIconer>
          
         </RightSideDiv>
-      
        
         </Container>
-           
-        
+               
        
     </>
   );
