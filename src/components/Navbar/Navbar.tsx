@@ -20,7 +20,6 @@ const Navbar: React.FC = () => {
   justify-content:space-between;
   color:black;
   background-color:white;
-  
 
 `;
 
@@ -29,15 +28,12 @@ const Navbar: React.FC = () => {
   margin-left:1rem;
   font-size: 1.3em;
 
-  
-  
 `;
 
  const Menu = styled.div`
   display: flex;
   font-size: 1.0em;
   justify-content:center;
-  
   
 `;
 
@@ -46,18 +42,16 @@ const Navbar: React.FC = () => {
   font-size: 1em;
   justify-content:space-between; 
   
-  
 `;
 const RightSideSearch = styled.div`
 height:50px;
 background-color:#494949E5;
 width:20vw;
-font-size: 1.3em;
+font-size: 1.4em;
 text-align:center;
 justify-content:center;
 align-items:center;
 display:flex;
-
 
 `;
 const RightSideDiv = styled.div`
@@ -68,30 +62,22 @@ display:flex;
 text-align:center;
 color:white;
 text-decoration: underline; 
+;
    
-
 `;
-
 
 const RightSideIconer = styled.div`
 height:50px;
 width:15vw;
 background-color:#494949E5;
 color:white;
-font-size: 1.6em;
+font-size: 1.4em;
 text-align:center;
-justify-content:center;
+justify-content: space-evenly;
 align-items:center;
 display:flex;
 
-
-
-
-
-
 `;
-
-
 
  
   return (
@@ -99,8 +85,6 @@ display:flex;
     
       <Container>
      
-
-      
         <Menu>
         
       <Logo>
@@ -119,18 +103,15 @@ display:flex;
           <MenuItem>SKATEBOARDS</MenuItem>
           <MenuItem>SHOES</MenuItem>
           <MenuItem>CONTACT</MenuItem>
-
-          
+ 
         </Menu>
 
         <RightSideDiv>
-            <RightSideSearch>
 
-              <FaSearch/> 
-              <h5>Search</h5>
-             
-             
-        </RightSideSearch>
+            <RightSideSearch>
+            <FaSearch/> 
+              <h5>Search</h5>  
+            </RightSideSearch>
 
         <RightSideIconer>
             <FaRegHeart/>
@@ -143,7 +124,6 @@ display:flex;
        
         </Container>
                
-       
     </>
   );
 }
