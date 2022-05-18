@@ -5,12 +5,14 @@ import App from './App';
 import Footer from './components/Footer/Footer'
 import reportWebVitals from './reportWebVitals';
 import LatestProducts from './components/LatestProducts/LatestProducts'
+import Navbar from './components/Navbar/Navbar'
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
+    <Navbar/>
     <App />
     <Footer />
     
