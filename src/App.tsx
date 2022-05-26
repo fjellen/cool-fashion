@@ -13,6 +13,7 @@ import Clothing from './components/Pages/Clothing';
 import Contact from './components/Pages/Contact';
 import Shoes from './components/Pages/Shoes';
 import Skateboards from './components/Pages/Skateboards';
+import Account from './components/Pages/Account';
 
 
 
@@ -29,6 +30,7 @@ function App() {
           <Route path="clothing" element={<Clothing />} />
           <Route path="shoes" element={<Shoes />} />
           <Route path="skateboards" element={<Skateboards />} />
+          <Route path="account" element={<Account />} />
         </Route>
       </Routes>
      

@@ -169,7 +169,9 @@ const StyledInput = styled.input`
 
         <RightSideIconer>
             <FaRegHeart/>
+            <Link to="account" style={{color:"white"}}>
             <FaRegUserCircle/>
+            </Link>
            <FaCartArrowDown/>
         
        </RightSideIconer>
