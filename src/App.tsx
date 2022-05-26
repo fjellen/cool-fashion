@@ -1,16 +1,43 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import ReactDOM from "react-dom/client";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LatestProducts from './components/LatestProducts/LatestProducts'
+import Navbar from './components/Navbar/Navbar';
+
+import Home from './components/Pages/Home'
+import Accessories from './components/Pages/Accessories';
+import Brands from './components/Pages/Brands';
+import Clothing from './components/Pages/Clothing';
+import Contact from './components/Pages/Contact';
+import Shoes from './components/Pages/Shoes';
+import Skateboards from './components/Pages/Skateboards';
+
+
+
 function App() {
   return (
-    <div>
-      <header>
-        <h1>App.tsx</h1>
-        <LatestProducts/>
-      </header>
-    </div>
+    <BrowserRouter>
+    
+      <Routes>
+        <Route path="/" element={<Navbar />}>
+          <Route index element={<Home />} />
+          <Route path="accessories" element={<Accessories />} />
+          <Route path="brands" element={<Brands />} />
+          <Route path="contact" element={<Contact />} />
+          <Route path="clothing" element={<Clothing />} />
+          <Route path="shoes" element={<Shoes />} />
+          <Route path="skateboards" element={<Skateboards />} />
+        </Route>
+      </Routes>
+     
+    </BrowserRouter>
+
+
+    
   );
 }
+<LatestProducts/>
 
 export default App;
