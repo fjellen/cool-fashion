@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "submenus",
+  "info": {
+    "singularName": "submenu",
+    "pluralName": "submenus",
+    "displayName": "submenu",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "hoodies": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::hoodie.hoodie",
+      "mappedBy": "submenu"
+    },
+    "t_shirts": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::t-shirt.t-shirt",
+      "mappedBy": "submenu"
+    },
+    "pants": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::pant.pant",
+      "mappedBy": "submenu"
+    }
+  }
+}
