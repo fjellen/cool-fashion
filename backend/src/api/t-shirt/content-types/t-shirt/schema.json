@@ -1,0 +1,54 @@
+{
+  "kind": "collectionType",
+  "collectionName": "t_shirts",
+  "info": {
+    "singularName": "t-shirt",
+    "pluralName": "t-shirts",
+    "displayName": "t-shirt"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "price": {
+      "type": "decimal"
+    },
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "brandLogo": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "desc": {
+      "type": "richtext"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "submenu": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::submenu.submenu",
+      "inversedBy": "t_shirts"
+    }
+  }
+}

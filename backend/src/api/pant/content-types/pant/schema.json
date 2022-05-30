@@ -1,0 +1,57 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pants",
+  "info": {
+    "singularName": "pant",
+    "pluralName": "pants",
+    "displayName": "pants",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "desc": {
+      "type": "richtext"
+    },
+    "price": {
+      "type": "decimal"
+    },
+    "image": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "brandLogo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "submenu": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::submenu.submenu",
+      "inversedBy": "pants"
+    }
+  }
+}

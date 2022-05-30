@@ -1,0 +1,54 @@
+{
+  "kind": "collectionType",
+  "collectionName": "hoodies",
+  "info": {
+    "singularName": "hoodie",
+    "pluralName": "hoodies",
+    "displayName": "hoodie"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "desc": {
+      "type": "richtext"
+    },
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "brandLogo": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "price": {
+      "type": "decimal"
+    },
+    "submenu": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::submenu.submenu",
+      "inversedBy": "hoodies"
+    }
+  }
+}
