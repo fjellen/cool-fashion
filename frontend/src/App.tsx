@@ -1,9 +1,6 @@
 import React, { useState } from "react";
-import logo from "./logo.svg";
 import "./App.css";
-import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import LatestProducts from "./components/LatestProducts/LatestProducts";
 import Navbar from "./components/Navbar/Navbar";
 
 import Home from "./components/Pages/Home";
@@ -15,6 +12,7 @@ import Shoes from "./components/Pages/Shoes";
 import Skateboards from "./components/Pages/Skateboards";
 import Account from "./components/Pages/Account";
 import Login from "./components/Pages/Login";
+import Register from "./components/Pages/Register";
 
 function App() {
   return (
@@ -30,11 +28,11 @@ function App() {
           <Route path="skateboards" element={<Skateboards />} />
           <Route path="account" element={<Account />} />
           <Route path="Login" element={<Login />} />
+          <Route path="Register" element={<Register />} />
         </Route>
       </Routes>
     </BrowserRouter>
   );
 }
-<LatestProducts />;
 
 export default App;

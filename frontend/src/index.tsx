@@ -1,27 +1,21 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import React from "react";
+import ReactDOM from "react-dom/client";
 
-import './index.css';
-import App from './App';
-import Footer from './components/Footer/Footer'
-import reportWebVitals from './reportWebVitals';
-import LatestProducts from './components/LatestProducts/LatestProducts';
-import Navbar from './components/Navbar/Navbar';
-import { Outlet } from 'react-router-dom';
-
-
-
+import "./index.css";
+import App from "./App";
+import Footer from "./components/Footer/Footer";
+import reportWebVitals from "./reportWebVitals";
+import { UserProvider } from "./context/UserContext";
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+  document.getElementById("root") as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <App />
-    
+    <UserProvider>
+      <App />
+    </UserProvider>
     <Footer />
-    
- 
   </React.StrictMode>
 );
 
