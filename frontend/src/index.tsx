@@ -12,10 +12,11 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <UserProvider>
-      <App />
-    </UserProvider>
-    <Footer />
+    <App />
+    
+    
+    
+ 
   </React.StrictMode>
 );
 
