@@ -26,6 +26,7 @@ const HeaderText = styled.h1`
 width: 100%;
 text-align: center;
 margin-left: 5rem;
+margin-top: 2rem;
 `
 
 const FlexHolder = styled.div`
