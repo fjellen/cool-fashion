@@ -16,12 +16,15 @@ import Skateboards from "./components/Pages/Skateboards";
 import Account from "./components/Pages/Account";
 import Login from "./components/Pages/Login";
 import Tshirts from "./components/Pages/T-Shirts";
+import Hoodies from "./components/Pages/Hoodies";
+import Pants from "./components/Pages/Pants";
+import Layout from "./components/Layout.tsx/Layout";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Navbar />}>
+        <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="accessories" element={<Accessories />} />
           <Route path="brands" element={<Brands />} />
@@ -31,7 +34,10 @@ function App() {
           <Route path="skateboards" element={<Skateboards />} />
           <Route path="account" element={<Account />} />
           <Route path="Login" element={<Login />} />
-          <Route path="clothing/tshirts" element={<Tshirts/>} />
+          <Route path="tshirts" element={<Tshirts/>} />
+          <Route path="hoodies" element={<Hoodies/>} />
+          <Route path="pants" element={<Pants/>} />
+
         </Route>
       </Routes>
     </BrowserRouter>

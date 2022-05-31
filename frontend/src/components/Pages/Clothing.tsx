@@ -4,6 +4,15 @@ import {strapiClientGet }from "../../utils/strapiClient"
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
+
+const LinkStyle = {
+
+  textDecoration: "none" as "none",
+  color: "black" as "black",
+};
+
+
+
 const ClothingList = styled.ul`
 list-style-type: none;
 border-right: 1px solid red;
@@ -110,12 +119,24 @@ const Clothing = () => {
     </SelectionHolder>
     <FlexHolder>
     <ClothingList>
-      <li style={{fontWeight: "bold"}}>ALLA PRODUKTER</li>
-      <li>NYHETER</li>
-      <li>BYXOR</li>
-      <li>HOODIES</li>
-      <Link to="tshirts">T-SHIRTS</Link>
-      <li>ACCESSORIES</li>
+
+    <li style={{fontWeight: "bold"}}><Link to="/clothing" style={LinkStyle}>ALL PRODUCTS </Link></li>
+    <li><Link to="/pants"style={LinkStyle}>PANTS</Link></li>
+    <li> <Link to="/hoodies" style={LinkStyle}>HOODIES</Link></li>
+    <li><Link to="/accessories" style={LinkStyle}>ACCESSORIES</Link></li>
+    <li>  <Link to="/shoes"style={LinkStyle}>SHOES</Link></li>
+    <li><Link to="/skateboards"style={LinkStyle}>SKATEBOARDS</Link></li>
+    <li> <Link to="/brands"style={LinkStyle}>BRANDS</Link></li>
+    <li><Link to="/tshirts"style={LinkStyle}>T-SHIRTS</Link></li>
+    <li> <Link to="/accessories"style={LinkStyle}>ACCESSORIES</Link></li> 
+      
+     
+      
+    
+      
+     
+      
+     
     </ClothingList>
     <GridView>
     {
