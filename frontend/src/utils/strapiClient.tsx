@@ -13,3 +13,16 @@ export const strapiClient = async (
   const data = await response.json();
   return data;
 };
+
+
+export const strapiClientGet = async (
+  path: string,
+  method: string,
+) => {
+  const response =  await fetch(`http://localhost:1337${path}`, {
+    method,
+  });
+  const data = await response.json();
+  return data;
+};
+

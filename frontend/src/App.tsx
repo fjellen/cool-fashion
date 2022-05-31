@@ -15,6 +15,7 @@ import Shoes from "./components/Pages/Shoes";
 import Skateboards from "./components/Pages/Skateboards";
 import Account from "./components/Pages/Account";
 import Login from "./components/Pages/Login";
+import Tshirts from "./components/Pages/T-Shirts";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
           <Route path="skateboards" element={<Skateboards />} />
           <Route path="account" element={<Account />} />
           <Route path="Login" element={<Login />} />
+          <Route path="clothing/tshirts" element={<Tshirts/>} />
         </Route>
       </Routes>
     </BrowserRouter>

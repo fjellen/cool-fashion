@@ -2,8 +2,6 @@ import styled from "styled-components";
 import Card from "../Card/Card"
 import {strapiClientGet }from "../../utils/strapiClient"
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-
 const ClothingList = styled.ul`
 list-style-type: none;
 border-right: 1px solid red;
@@ -26,9 +24,9 @@ display: flex;
 const GridView = styled.div`
 padding: 1em;
 display: grid;
-grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 width: 100%;
-grid-column-gap: 20px;
+grid-column-gap: 10px;
 
 `
 const TypeSelector = styled.select`
@@ -54,10 +52,9 @@ justify-content: center
 
 
 
-const randomPicture = "https://api.lorem.space/image/movie?w=344&h=374"
 
 
-const Clothing = () => {
+const Tshirts = () => {
   const [items, setItems] = useState<any[]>([])
   
  
@@ -73,7 +70,7 @@ const Clothing = () => {
    
       
     return <>
-    <HeaderText>All Clothing items</HeaderText>
+    <HeaderText>T-Shirts </HeaderText>
     <SelectionHolder>
       <TypeSelector name="size" required>
         <option  value="" disabled selected hidden>Size</option>
@@ -110,33 +107,20 @@ const Clothing = () => {
     </SelectionHolder>
     <FlexHolder>
     <ClothingList>
-      <li style={{fontWeight: "bold"}}>ALLA PRODUKTER</li>
+      <li>ALLA PRODUKTER</li>
       <li>NYHETER</li>
       <li>BYXOR</li>
       <li>HOODIES</li>
-      <Link to="tshirts">T-SHIRTS</Link>
+      <li style={{fontWeight: "bold"}}>T-SHIRTS</li>
       <li>ACCESSORIES</li>
     </ClothingList>
     <GridView>
     {
      items.map((item, index) => {
        return(
-         <>
+           <>
          <Card description={item.attributes.title}  imgUrl={`http://localhost:1337${item.attributes.image.data[0].attributes.url}`} ></Card>
-         <Card description={item.attributes.title}  imgUrl={`http://localhost:1337${item.attributes.image.data[0].attributes.url}`} ></Card>
-         <Card description={item.attributes.title}  imgUrl={`http://localhost:1337${item.attributes.image.data[0].attributes.url}`} ></Card>
-         <Card description={item.attributes.title}  imgUrl={`http://localhost:1337${item.attributes.image.data[0].attributes.url}`} ></Card>
-         <Card description={item.attributes.title}  imgUrl={`http://localhost:1337${item.attributes.image.data[0].attributes.url}`} ></Card>
-         <Card description={item.attributes.title}  imgUrl={`http://localhost:1337${item.attributes.image.data[0].attributes.url}`} ></Card>
-         <Card description={item.attributes.title}  imgUrl={`http://localhost:1337${item.attributes.image.data[0].attributes.url}`} ></Card>
-         <Card description={item.attributes.title}  imgUrl={`http://localhost:1337${item.attributes.image.data[0].attributes.url}`} ></Card>
-         <Card description={item.attributes.title}  imgUrl={`http://localhost:1337${item.attributes.image.data[0].attributes.url}`} ></Card>
-         <Card description={item.attributes.title}  imgUrl={`http://localhost:1337${item.attributes.image.data[0].attributes.url}`} ></Card>
-         <Card description={item.attributes.title}  imgUrl={`http://localhost:1337${item.attributes.image.data[0].attributes.url}`} ></Card>
-         <Card description={item.attributes.title}  imgUrl={`http://localhost:1337${item.attributes.image.data[0].attributes.url}`} ></Card>
-         <Card description={item.attributes.title}  imgUrl={`http://localhost:1337${item.attributes.image.data[0].attributes.url}`} ></Card>
-         <Card description={item.attributes.title}  imgUrl={`http://localhost:1337${item.attributes.image.data[0].attributes.url}`} ></Card>
-
+         
          </>
        )
      })
@@ -147,4 +131,4 @@ const Clothing = () => {
     </>
   };
   
-  export default Clothing;
+  export default Tshirts;
