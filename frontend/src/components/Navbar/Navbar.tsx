@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useEffect, useContext } from "react";
 import styled from "styled-components";
 import { FaRegHeart } from "react-icons/fa";
 import { FaRegUserCircle } from "react-icons/fa";
 import { FaCartArrowDown } from "react-icons/fa";
 import { FaSearch } from "react-icons/fa";
-import { Outlet, Link, BrowserRouter } from "react-router-dom";
+import { Outlet, Link } from "react-router-dom";
+import { userContext } from "../../context/UserContext";
 
 const Navbar: React.FC = () => {
+  const context = useContext(userContext);
+
   const LinkStyle = {
     marginRight: "30px" as "30px",
     fontSize: "1em" as "1em",
@@ -17,12 +20,12 @@ const Navbar: React.FC = () => {
 
   const Container = styled.div`
     display: flex;
+    position: fixed;
     align-items: center;
     height: 50px;
     width: 100vw;
     justify-content: space-between;
     color: black;
-    background-color: white;
   `;
 
   const Logo = styled.div`
@@ -39,7 +42,6 @@ const Navbar: React.FC = () => {
 
   const RightSideSearch = styled.div`
     height: 50px;
-    background-color: #494949e5;
     width: 20vw;
     font-size: 1.4em;
     text-align: center;
@@ -50,18 +52,17 @@ const Navbar: React.FC = () => {
 
   const RightSideDiv = styled.div`
     height: 50px;
-    background-color: #494949e5;
     width: 20vw;
     display: flex;
     text-align: center;
-    color: white; ;
+    color: #000000;
+    margin-right: 2rem;
   `;
 
   const RightSideIconer = styled.div`
     height: 50px;
     width: 9vw;
-    background-color: #494949e5;
-    color: white;
+    color: #000000;
     font-size: 1.2em;
     text-align: center;
     justify-content: space-around;
@@ -71,17 +72,17 @@ const Navbar: React.FC = () => {
 
   const StyledInput = styled.input`
     text-decoration: none;
+    background-color: transparent;
     outline: none;
-    background-color: #494949e5;
     border: 0;
     border-bottom: 1px solid red;
-    border-color: white;
+    border-color: #000000;
     position: relative;
-    padding-left: 1rem;
-    color: white;
+    padding-left: 0.5rem;
+    color: #000000;
     ::placeholder {
       margin-left: 1rem;
-      color: white;
+      color: #000000;
     }
   `;
 
@@ -143,23 +144,25 @@ const Navbar: React.FC = () => {
             CONTACT
           </Link>
         </Menu>
-
         <RightSideDiv>
           <RightSideSearch>
             <FaSearch
               style={{
-                position: "absolute",
-                right: "21rem",
-                zIndex: " 1",
-                fontSize: "1.1rem",
+                height: "16px",
+                width: "16px",
+                display: "flex",
+                justifyContent: "center",
               }}
             />
-            <StyledInput type="text" placeholder="Search"></StyledInput>
+            <StyledInput type="text" placeholder="Search..."></StyledInput>
           </RightSideSearch>
 
           <RightSideIconer>
             <FaRegHeart />
-            <Link to="Login" style={{ color: "white" }}>
+            <Link
+              to={context?.loggedIn ? "Account" : "Login"}
+              style={{ color: "black" }}
+            >
               <FaRegUserCircle />
             </Link>
             <FaCartArrowDown />

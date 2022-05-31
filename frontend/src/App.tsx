@@ -1,9 +1,6 @@
 import React, { useState } from "react";
-import logo from "./logo.svg";
 import "./App.css";
-import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import LatestProducts from "./components/LatestProducts/LatestProducts";
 import Navbar from "./components/Navbar/Navbar";
 
 import Home from "./components/Pages/Home";
@@ -43,6 +40,5 @@ function App() {
     </BrowserRouter>
   );
 }
-<LatestProducts />;
 
 export default App;

@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import React, { useContext, useRef } from "react";
-import { userContext } from "../../context/UserContext";
+import React, { useRef, useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { strapiClient } from "../../utils/strapiClient";
+import { userContext } from "../../context/UserContext";
 
 const FlexContainer = styled.section`
   display: flex;
@@ -13,7 +13,7 @@ const FlexContainer = styled.section`
 const Container = styled.div`
   max-width: 500px;
   margin: 1rem;
-  padding: 2em;
+  padding: 15rem;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -65,36 +65,30 @@ const FormContainer = styled.div`
 const Login = () => {
   const context = useContext(userContext);
   const navigate = useNavigate();
-
   const emailRef = React.useRef<HTMLInputElement | null>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
 
+  const [errorMsg, setErrorMsg] = useState<any>(null);
+
   const handleSubmit = async (e: React.FormEvent) => {
-    console.log(e);
+    setErrorMsg(null);
     e.preventDefault();
-    const user = context?.user;
-
-    const response = await strapiClient("/api/auth/local", "POST", {
-      identifier: emailRef?.current?.value,
-      password: passwordRef?.current?.value,
-    }).then((data) => {
-      console.log(data);
-      if (data.data === null) {
-        console.log("Something went wrong");
+    try {
+      const response = await strapiClient("/api/auth/local", "POST", {
+        identifier: emailRef?.current?.value,
+        password: passwordRef?.current?.value,
+      });
+      if (!response.user) {
+        throw "Cannot login. Please try again.";
       } else {
+        context?.setLoggedIn(true);
         navigate("/Account");
-        localStorage.setItem("user-info", JSON.stringify(data));
+        localStorage.setItem("user-info", JSON.stringify(response));
       }
-    });
+    } catch (err: any) {
+      setErrorMsg(err);
+    }
   };
-
-  //   const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-  //     context?.setRegisterUser({
-  //       ...context.user!,
-  //       [e.target.name]: e.target.value,
-  //     });
-  //     console.log(context?.user);
-  //   };
 
   return (
     <>
@@ -127,7 +121,6 @@ const Login = () => {
                 type="text"
                 placeholder="Enter Email"
                 name="email"
-                onChange={() => console.log(emailRef?.current?.value)}
               />
               <label style={{ marginTop: "1rem" }}>Password</label>
               <Input
@@ -138,6 +131,7 @@ const Login = () => {
               />
 
               <Button type="submit">Login</Button>
+              {errorMsg && <p style={{ color: "#ff0000" }}>{errorMsg}</p>}
             </Form>
           </Container>
         </FormContainer>
