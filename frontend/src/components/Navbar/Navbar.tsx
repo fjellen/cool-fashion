@@ -21,6 +21,8 @@ const Navbar: React.FC = () => {
   const Container = styled.div`
     display: flex;
     position: fixed;
+    top: 0;
+    left: 0;
     align-items: center;
     height: 50px;
     width: 100vw;

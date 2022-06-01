@@ -41,9 +41,20 @@ const LatestProducts = () => {
           modules={[Navigation, Pagination]}
           navigation
           spaceBetween={4}
-          slidesPerView={5}
-          onSlideChange={() => console.log("slide change")}
-          onSwiper={(swiper) => console.log(swiper)}
+          slidesPerView={4}
+          breakpoints={{
+            320: {
+              slidesPerView: 2,
+              spaceBetween: 20,
+            },
+            480: {
+              slidesPerView: 4,
+              spaceBetween: 30,
+            },
+            640: {
+              spaceBetween: 40,
+            },
+          }}
           style={{ display: "flex", alignItems: "center" }}
         >
           <SwiperSlide style={sliderStyle}>
