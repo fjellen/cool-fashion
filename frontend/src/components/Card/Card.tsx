@@ -26,7 +26,7 @@ const ItemContainer = styled.div`
 
 const Image = styled.img`
   height: 344px;
-  height 374px;
+  height: 374px;
 `;
 
 const Card = (props: cardProps) => {
