@@ -59,37 +59,52 @@ const LatestProducts = () => {
         >
           <SwiperSlide style={sliderStyle}>
             <Card
+              item={null}
               imgUrl={randomPicture}
               title="Clothing item title"
               description="$50.00 USD"
+              slug="null"
+              type="null"
             />
           </SwiperSlide>
           <SwiperSlide style={sliderStyle}>
             <Card
+              item={null}
               imgUrl={randomPicture}
               title="Clothing item title"
               description="$50.00 USD"
+              slug="null"
+              type="null"
             />
           </SwiperSlide>
           <SwiperSlide style={sliderStyle}>
             <Card
+              item={null}
               imgUrl={randomPicture}
               title="Clothing item title"
               description="$50.00 USD"
+              slug="null"
+              type="null"
             />
           </SwiperSlide>
           <SwiperSlide style={sliderStyle}>
             <Card
+              item={null}
               imgUrl={randomPicture}
               title="Clothing item title"
               description="$50.00 USD"
+              slug="null"
+              type="null"
             />
           </SwiperSlide>
           <SwiperSlide style={sliderStyle}>
             <Card
+              item={null}
               imgUrl={randomPicture}
               title="Clothing item title"
               description="$50.00 USD"
+              slug="null"
+              type="null"
             />
           </SwiperSlide>
         </Swiper>
