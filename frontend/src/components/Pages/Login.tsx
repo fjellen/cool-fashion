@@ -3,6 +3,18 @@ import React, { useRef, useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { strapiClient } from "../../utils/strapiClient";
 import { userContext } from "../../context/UserContext";
+import Image from "../Pages/jordan-mcqueen-88XM5Al3AXg-unsplash.jpg"
+
+
+const BackgroundImage = styled.img`
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  
+  z-index: -1
+`
+
 
 const FlexContainer = styled.section`
   display: flex;
@@ -11,7 +23,7 @@ const FlexContainer = styled.section`
 `;
 
 const Container = styled.div`
-  max-width: 500px;
+ 
   margin: 1rem;
   padding: 15rem;
   border-radius: 10px;
@@ -22,27 +34,31 @@ const Container = styled.div`
 
 const Form = styled.form`
   display: block;
+  background-color: white;
+
+  
+  padding: 3rem;
 `;
 
 const Input = styled.input`
   color: #fff;
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
-  width: 500px;
   outline: none;
-  padding-left: 10px;
-  padding-top: 0.5em;
-  padding-bottom: 0.5em;
-  border: none;
+  width: 95%;
+ 
+  padding: 1em;
+  border: 1px solid black;
   border-radius: 3px;
-  background: #292929;
+  
   ::placeholder {
-    color: #d3d3d3;
+    color: grey;
+    font-size: 1rem;
   }
 `;
 
 const Button = styled.button`
-  margin-top: 2rem;
+  margin-top: 1rem;
   width: 100%;
   background: #303030;
   border: none;
@@ -50,17 +66,19 @@ const Button = styled.button`
   font-size: 1.2rem;
   font-weight: lighter;
   cursor: pointer;
-  padding-top: 0.25em;
-  padding-bottom: 0.25em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
   border-radius: 3px;
   color: #d3d3d3;
 `;
 
 const FormContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  width: 100%;
+
 `;
+
+const BackgroundHolder = styled.div`
+background-color: white;
+`
 
 const Login = () => {
   const context = useContext(userContext);
@@ -92,50 +110,59 @@ const Login = () => {
 
   return (
     <>
+    <BackgroundImage src={Image}></BackgroundImage>
       <FlexContainer>
         <FormContainer>
           <Container>
+            
+          
+          
+
+            <Form onSubmit={handleSubmit}>
             <h2
               style={{
                 textAlign: "center",
-                marginBottom: "0.5rem",
+                
                 fontFamily: "montserrat",
               }}
             >
               Welcome back
             </h2>
-            <p
-              style={{
-                textAlign: "center",
-                textDecoration: "none",
-                marginBottom: "1rem",
-              }}
-            >
-              Dont have an account? <Link to="/register">Register</Link>
-            </p>
-
-            <Form onSubmit={handleSubmit}>
-              <label style={{ marginTop: "1rem" }}>Email</label>
+            <p style={{textAlign: "center"}}>Please login to access your account</p>
               <Input
                 ref={emailRef}
                 type="text"
-                placeholder="Enter Email"
+                placeholder="Email"
                 name="email"
               />
-              <label style={{ marginTop: "1rem" }}>Password</label>
+             
               <Input
                 ref={passwordRef}
                 type="password"
-                placeholder=" Enter A Password"
+                placeholder=" Password"
                 name="password"
               />
 
-              <Button type="submit">Login</Button>
+              <Button type="submit">Sign In</Button>
               {errorMsg && <p style={{ color: "#ff0000" }}>{errorMsg}</p>}
+
+              <p
+              style={{
+                paddingTop: "2rem",
+                textAlign: "center",
+                textDecoration: "none",
+                borderTop: "1px solid black",
+            
+              }}
+            >
+              Dont have an account? <Link  to="/register">Register</Link>
+            </p>
             </Form>
           </Container>
         </FormContainer>
+       
       </FlexContainer>
+      
     </>
   );
 };

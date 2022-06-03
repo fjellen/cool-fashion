@@ -36,7 +36,6 @@ function App() {
           <Route path="skateboards" element={<Skateboards />} />
           <Route path="shoes/:slug" element={<ProductDetails />} />
           <Route path="account" element={<Account />} />
-          <Route path="Login" element={<Login />} />
           <Route path="tshirts" element={<Tshirts />} />
           <Route path="tshirts/:slug" element={<ProductDetails />} />
           <Route path="hoodies" element={<Hoodies />} />
@@ -45,6 +44,8 @@ function App() {
           <Route path="pants/:slug" element={<ProductDetails />} />
           <Route path="Register" element={<Register />} />
         </Route>
+        <Route path="Login" element={<Login />} />
+        <Route path="Register" element={<Register />} />
       </Routes>
     </BrowserRouter>
   );
