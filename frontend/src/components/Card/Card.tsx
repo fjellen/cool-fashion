@@ -1,9 +1,17 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 type cardProps = {
+  item: [] | null;
   imgUrl: string;
   title?: string;
   description: string;
+  slug: string;
+  type: string;
+};
+
+type RouteState = {
+  product: [];
 };
 
 const Title = styled.p``;
@@ -30,6 +38,7 @@ const Image = styled.img`
 `;
 
 const Card = (props: cardProps) => {
+  console.log(props.slug);
   return (
     <>
       <FlexContainer>
@@ -58,6 +67,9 @@ const Card = (props: cardProps) => {
                 <path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm144 276c0 6.6-5.4 12-12 12h-92v92c0 6.6-5.4 12-12 12h-56c-6.6 0-12-5.4-12-12v-92h-92c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h92v-92c0-6.6 5.4-12 12-12h56c6.6 0 12 5.4 12 12v92h92c6.6 0 12 5.4 12 12v56z" />
               </svg>
             </div>
+            <Link to={`${props.slug}`} state={{ props }}>
+              <button>Go to</button>
+            </Link>
           </div>
         </ItemContainer>
       </FlexContainer>

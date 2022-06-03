@@ -17,6 +17,7 @@ import Hoodies from "./components/Pages/Hoodies";
 import Pants from "./components/Pages/Pants";
 import Layout from "./components/Layout.tsx/Layout";
 import Register from "./components/Pages/Register";
+import ProductDetails from "./components/Pages/[slug]";
 
 function App() {
   return (
@@ -25,16 +26,23 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="accessories" element={<Accessories />} />
+          <Route path="accessories/:slug" element={<ProductDetails />} />
           <Route path="brands" element={<Brands />} />
           <Route path="contact" element={<Contact />} />
           <Route path="clothing" element={<Clothing />} />
+          <Route path="clothing/:slug" element={<ProductDetails />} />
           <Route path="shoes" element={<Shoes />} />
+          <Route path="shoes/:slug" element={<ProductDetails />} />
           <Route path="skateboards" element={<Skateboards />} />
+          <Route path="shoes/:slug" element={<ProductDetails />} />
           <Route path="account" element={<Account />} />
           <Route path="Login" element={<Login />} />
           <Route path="tshirts" element={<Tshirts />} />
+          <Route path="tshirts/:slug" element={<ProductDetails />} />
           <Route path="hoodies" element={<Hoodies />} />
+          <Route path="hoodies/:slug" element={<ProductDetails />} />
           <Route path="pants" element={<Pants />} />
+          <Route path="pants/:slug" element={<ProductDetails />} />
           <Route path="Register" element={<Register />} />
         </Route>
       </Routes>

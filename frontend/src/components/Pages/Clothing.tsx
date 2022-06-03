@@ -156,64 +156,11 @@ const Clothing = () => {
             return (
               <>
                 <Card
+                  item={item}
                   description={item.attributes.title}
                   imgUrl={`http://localhost:1337${item.attributes.image.data[0].attributes.url}`}
-                />
-                <Card
-                  description={item.attributes.title}
-                  imgUrl={`http://localhost:1337${item.attributes.image.data[0].attributes.url}`}
-                />
-                <Card
-                  description={item.attributes.title}
-                  imgUrl={`http://localhost:1337${item.attributes.image.data[0].attributes.url}`}
-                />
-                <Card
-                  description={item.attributes.title}
-                  imgUrl={`http://localhost:1337${item.attributes.image.data[0].attributes.url}`}
-                />
-                <Card
-                  description={item.attributes.title}
-                  imgUrl={`http://localhost:1337${item.attributes.image.data[0].attributes.url}`}
-                />
-                <Card
-                  description={item.attributes.title}
-                  imgUrl={`http://localhost:1337${item.attributes.image.data[0].attributes.url}`}
-                />
-                <Card
-                  description={item.attributes.title}
-                  imgUrl={`http://localhost:1337${item.attributes.image.data[0].attributes.url}`}
-                />
-                <Card
-                  description={item.attributes.title}
-                  imgUrl={`http://localhost:1337${item.attributes.image.data[0].attributes.url}`}
-                />
-                <Card
-                  description={item.attributes.title}
-                  imgUrl={`http://localhost:1337${item.attributes.image.data[0].attributes.url}`}
-                />
-                <Card
-                  description={item.attributes.title}
-                  imgUrl={`http://localhost:1337${item.attributes.image.data[0].attributes.url}`}
-                />
-                <Card
-                  description={item.attributes.title}
-                  imgUrl={`http://localhost:1337${item.attributes.image.data[0].attributes.url}`}
-                />
-                <Card
-                  description={item.attributes.title}
-                  imgUrl={`http://localhost:1337${item.attributes.image.data[0].attributes.url}`}
-                />
-                <Card
-                  description={item.attributes.title}
-                  imgUrl={`http://localhost:1337${item.attributes.image.data[0].attributes.url}`}
-                />
-                <Card
-                  description={item.attributes.title}
-                  imgUrl={`http://localhost:1337${item.attributes.image.data[0].attributes.url}`}
-                />
-                <Card
-                  description={item.attributes.title}
-                  imgUrl={`http://localhost:1337${item.attributes.image.data[0].attributes.url}`}
+                  slug={item.attributes.slug}
+                  type={item.attributes.type}
                 />
               </>
             );
