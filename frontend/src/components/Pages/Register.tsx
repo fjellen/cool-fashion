@@ -7,30 +7,27 @@ import Image from "../Pages/jordan-mcqueen-88XM5Al3AXg-unsplash.jpg"
 import {Link} from "react-router-dom"
 
 const Input = styled.input`
-  color: #fff;
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-  outline: none;
-  width: 100%;
- 
-  
-  padding-top: 1em;
-  padding-bottom: 1em;
-  border: 1px solid black;
-  border-radius: 3px;
-  
-  
-  ::placeholder {
-    color: grey;
-    font-size: 1rem;
-  }
+color: #fff;
+margin-top: 0.5rem;
+margin-bottom: 0.5rem;
+outline: none;
+width: 100%;
+
+padding: 1em;
+border: 1px solid black;
+border-radius: 3px;
+
+::placeholder {
+  color: grey;
+  font-size: 1rem;
+}
 `;
 
 
 const Form = styled.form`
   display: block;
   background-color: white;
-  padding: 3em;
+  padding: 3rem;
   
   
 `;
@@ -54,16 +51,17 @@ const FlexContainer = styled.section`
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 100vh;
 `;
 
 const Container = styled.div`
  
-  margin: 1rem;
-  padding: 15rem;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+margin: 1rem;
+padding: 15rem;
+border-radius: 10px;
+display: flex;
+flex-direction: column;
+align-items: center;
 `;
 
 const FormContainer = styled.div`
@@ -122,7 +120,7 @@ const Register = () => {
               style={{
                 textAlign: "center",
                 
-                fontFamily: "montserrat",
+                fontFamily: "inherit",
                 
               }}
             >
@@ -133,15 +131,15 @@ const Register = () => {
           ref={usernameRef}
           onChange={() => console.log(usernameRef.current?.value)}
           type="text"
-          placeholder="username"
+          placeholder="Username"
         />
-        <Input ref={emailRef} type="email" placeholder="email" />
+        <Input ref={emailRef} type="email" placeholder="Email" />
         
         <Input
           ref={passwordRef}
           onChange={() => console.log(passwordRef.current?.value)}
           type="password"
-          placeholder="password"
+          placeholder="Password"
         />
         <Button type="submit">Submit</Button>
               <NoAccount>

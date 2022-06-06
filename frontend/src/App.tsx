@@ -26,6 +26,7 @@ function App() {
     <GlobalStyle/>
       <Routes>
         <Route path="/" element={<Layout />}>
+     
           <Route index element={<Home />} />
           <Route path="accessories" element={<Accessories />} />
           <Route path="accessories/:slug" element={<ProductDetails />} />
@@ -48,7 +49,10 @@ function App() {
         </Route>
         <Route path="Login" element={<Login />} />
         <Route path="Register" element={<Register />} />
+
+    <Route path='*'  element={<NotFound/>} />
       </Routes>
+ 
     </BrowserRouter>
   );
 }

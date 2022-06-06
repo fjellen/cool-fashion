@@ -20,6 +20,7 @@ const FlexContainer = styled.section`
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 100vh
 `;
 
 const Container = styled.div`
@@ -38,6 +39,7 @@ const Form = styled.form`
 
   
   padding: 3rem;
+  border-radius: 5px;
 `;
 
 const Input = styled.input`
@@ -83,6 +85,13 @@ background-color: white;
 const Logo = styled.div`
 background-color: none; 
 
+`
+
+const AlreadyAccount = styled.p`
+text-align: center;
+border-top: 1px solid black;
+margin-top: 1rem;
+padding-top: 1rem;
 `
 
 const Login = () => {
@@ -131,7 +140,7 @@ const Login = () => {
               style={{
                 textAlign: "center",
                 
-                fontFamily: "montserrat",
+                fontFamily: "Inherit",
               }}
             >
               Welcome back
@@ -154,17 +163,9 @@ const Login = () => {
               <Button type="submit">Sign In</Button>
               {errorMsg && <p style={{ color: "#ff0000" }}>{errorMsg}</p>}
 
-              <p
-              style={{
-                paddingTop: "2rem",
-                textAlign: "center",
-                textDecoration: "none",
-                borderTop: "1px solid black",
-            
-              }}
-            >
+            <AlreadyAccount>
               Dont have an account? <Link  to="/register">Register</Link>
-            </p>
+              </AlreadyAccount>
             </Form>
           </Container>
         </FormContainer>
