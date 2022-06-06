@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
+import GlobalStyle from "./styles/global"
 
 import Home from "./components/Pages/Home";
 import Accessories from "./components/Pages/Accessories";
@@ -22,6 +23,7 @@ import ProductDetails from "./components/Pages/[slug]";
 function App() {
   return (
     <BrowserRouter>
+    <GlobalStyle/>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />

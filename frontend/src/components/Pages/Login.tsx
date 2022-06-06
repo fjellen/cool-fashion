@@ -45,7 +45,7 @@ const Input = styled.input`
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
   outline: none;
-  width: 95%;
+  width: 100%;
  
   padding: 1em;
   border: 1px solid black;
@@ -80,6 +80,11 @@ const BackgroundHolder = styled.div`
 background-color: white;
 `
 
+const Logo = styled.div`
+background-color: none; 
+
+`
+
 const Login = () => {
   const context = useContext(userContext);
   const navigate = useNavigate();
@@ -110,6 +115,9 @@ const Login = () => {
 
   return (
     <>
+
+          
+
     <BackgroundImage src={Image}></BackgroundImage>
       <FlexContainer>
         <FormContainer>
