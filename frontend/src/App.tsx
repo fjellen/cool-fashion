@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
-
+import GlobalStyle from "./styles/global"
+import NotFound from "./components/Pages/404";
 import Home from "./components/Pages/Home";
 import Accessories from "./components/Pages/Accessories";
 import Brands from "./components/Pages/Brands";
@@ -22,8 +23,10 @@ import ProductDetails from "./components/Pages/[slug]";
 function App() {
   return (
     <BrowserRouter>
+    <GlobalStyle/>
       <Routes>
         <Route path="/" element={<Layout />}>
+     
           <Route index element={<Home />} />
           <Route path="accessories" element={<Accessories />} />
           <Route path="accessories/:slug" element={<ProductDetails />} />
@@ -36,7 +39,6 @@ function App() {
           <Route path="skateboards" element={<Skateboards />} />
           <Route path="shoes/:slug" element={<ProductDetails />} />
           <Route path="account" element={<Account />} />
-          <Route path="Login" element={<Login />} />
           <Route path="tshirts" element={<Tshirts />} />
           <Route path="tshirts/:slug" element={<ProductDetails />} />
           <Route path="hoodies" element={<Hoodies />} />
@@ -44,8 +46,14 @@ function App() {
           <Route path="pants" element={<Pants />} />
           <Route path="pants/:slug" element={<ProductDetails />} />
           <Route path="Register" element={<Register />} />
+          <Route path="Login" element={<Login />} />
         </Route>
+       
+       
+
+    <Route path='*'  element={<NotFound/>} />
       </Routes>
+ 
     </BrowserRouter>
   );
 }
