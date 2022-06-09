@@ -7,7 +7,7 @@ import Image from "../Pages/jordan-mcqueen-88XM5Al3AXg-unsplash.jpg"
 import {Link} from "react-router-dom"
 
 const Input = styled.input`
-color: #fff;
+
 margin-top: 0.5rem;
 margin-bottom: 0.5rem;
 outline: none;

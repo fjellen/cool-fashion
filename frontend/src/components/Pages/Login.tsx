@@ -43,7 +43,7 @@ const Form = styled.form`
 `;
 
 const Input = styled.input`
-  color: #fff;
+  color: black;
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
   outline: none;

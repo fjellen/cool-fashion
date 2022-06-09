@@ -3,7 +3,7 @@ import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import GlobalStyle from "./styles/global"
-
+import NotFound from "./components/Pages/404";
 import Home from "./components/Pages/Home";
 import Accessories from "./components/Pages/Accessories";
 import Brands from "./components/Pages/Brands";
@@ -46,9 +46,10 @@ function App() {
           <Route path="pants" element={<Pants />} />
           <Route path="pants/:slug" element={<ProductDetails />} />
           <Route path="Register" element={<Register />} />
+          <Route path="Login" element={<Login />} />
         </Route>
-        <Route path="Login" element={<Login />} />
-        <Route path="Register" element={<Register />} />
+       
+       
 
     <Route path='*'  element={<NotFound/>} />
       </Routes>
