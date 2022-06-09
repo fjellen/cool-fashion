@@ -1,5 +1,5 @@
 import React from "react";
-import Images from "./Images/Image.11jpg.jpg"
+import Images from "./Images/Image.10jpg.jpg"
 import styled from "styled-components";
 import { IoIosArrowDroprightCircle } from "react-icons/io";
 
@@ -126,7 +126,7 @@ const  ContactForm: React.FC = () => {
 
   
 
-<h1>Frequently asked qouestions.</h1>
+<h1>Frequently asked questions.</h1>
 <br></br>
 
 <h3>-Jag pushade till master är mitt liv över?</h3>
