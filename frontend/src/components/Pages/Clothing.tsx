@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Card from "../Card/Card";
 import { strapiClientGet } from "../../utils/strapiClient";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const LinkStyle = {
@@ -59,9 +59,6 @@ const Clothing = () => {
     const response = strapiClientGet("/api/hoodies?populate=*", "GET");
     response.then((data) => setItems(data.data));
   }, []);
-
-  console.log(items);
-
   return (
     <>
       <HeaderText>All Clothing items</HeaderText>
@@ -154,15 +151,9 @@ const Clothing = () => {
         <GridView>
           {items.map((item, index) => {
             return (
-              <>
-                <Card
-                  item={item}
-                  description={item.attributes.title}
-                  imgUrl={`http://localhost:1337${item.attributes.image.data[0].attributes.url}`}
-                  slug={item.attributes.slug}
-                  type={item.attributes.type}
-                />
-              </>
+              <React.Fragment key={item.id}>
+                <Card item={item} />
+              </React.Fragment>
             );
           })}
         </GridView>

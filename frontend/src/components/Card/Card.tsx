@@ -1,13 +1,38 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import React, { Attributes, useContext } from "react";
+import { WishlistContext } from "../../context/wishlistContext";
+import AddWishlist from "../Wishlist/AddWishlist";
+import AddProducts from "../ShoppingCart/AddProducts";
 
 type cardProps = {
-  item: [] | null;
-  imgUrl: string;
-  title?: string;
-  description: string;
-  slug: string;
-  type: string;
+  item: {
+    attributes: {
+      brandLogo: {
+        data: [
+          {
+            attributes: {
+              url: string;
+            };
+          }
+        ];
+      };
+      title: string;
+      desc: string;
+      slug: string;
+      type: string;
+      image: {
+        data: [
+          {
+            attributes: {
+              url: string;
+            };
+          }
+        ];
+      };
+      price: number;
+    };
+  };
 };
 
 type RouteState = {
@@ -38,15 +63,21 @@ const Image = styled.img`
 `;
 
 const Card = (props: cardProps) => {
-  console.log(props.slug);
+  const context = useContext(WishlistContext);
+
   return (
     <>
       <FlexContainer>
         <ItemContainer>
-          <Image src={props.imgUrl} />
-          <Title>{props.title}</Title>
+          <Link to={`${props.item.attributes.slug}`} state={{ props }}>
+            <Image
+              src={`http://localhost:1337${props.item.attributes.image.data[0].attributes.url}`}
+            />
+          </Link>
+
+          <Title>{props.item.attributes.title}</Title>
           <div style={{ display: "flex" }}>
-            <Description>{props.description}</Description>
+            <Description>{props.item.attributes.title}</Description>
             <div
               style={{
                 display: "flex",
@@ -55,21 +86,9 @@ const Card = (props: cardProps) => {
                 alignItems: "center",
               }}
             >
-              <svg
-                style={{
-                  height: "32px",
-                  width: "29px",
-                  bottom: "1.5rem",
-                }}
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 512 512"
-              >
-                <path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm144 276c0 6.6-5.4 12-12 12h-92v92c0 6.6-5.4 12-12 12h-56c-6.6 0-12-5.4-12-12v-92h-92c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h92v-92c0-6.6 5.4-12 12-12h56c6.6 0 12 5.4 12 12v92h92c6.6 0 12 5.4 12 12v56z" />
-              </svg>
+              <AddWishlist item={props.item} />
+              <AddProducts item={props.item} />
             </div>
-            <Link to={`${props.slug}`} state={{ props }}>
-              <button>Go to</button>
-            </Link>
           </div>
         </ItemContainer>
       </FlexContainer>

@@ -5,15 +5,18 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { UserProvider } from "./context/UserContext";
+import { WishlistProvider } from "./context/wishlistContext";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <UserProvider>
-      <App />
-    </UserProvider>
+    <WishlistProvider>
+      <UserProvider>
+        <App />
+      </UserProvider>
+    </WishlistProvider>
   </React.StrictMode>
 );
 
