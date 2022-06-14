@@ -1,4 +1,5 @@
 import React from "react";
+import { Outlet, Link } from "react-router-dom";
 import styled from "styled-components";
 
 const footer: React.FC = () => {
@@ -49,13 +50,13 @@ const footer: React.FC = () => {
               <h4>SUPPORT</h4>
               <ul>
                 <ListItem>
-                  <a>FAQ</a>
+                  <Link to="contact">FAQ</Link>
                 </ListItem>
                 <ListItem>
-                  <a>Contact Us</a>
+                  <Link to="contact">Contact Us</Link>
                 </ListItem>
                 <ListItem>
-                  <a>Help / Support</a>
+                  <Link to="contact">Help / Support</Link>
                 </ListItem>
               </ul>
             </FlexBox>

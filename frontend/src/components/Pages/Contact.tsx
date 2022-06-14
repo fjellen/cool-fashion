@@ -7,12 +7,13 @@ const  ContactForm: React.FC = () => {
   const Container = styled.div`
     display:flex;
     
-   width:80vw;
+   
+    width:80vw;
     height:35vw;
     align-items:center;
     margin-left:10rem;
     margin-right:10rem;
-    margin-top:5rem;
+    margin-top:9rem;
     margin-bottom:10rem;
     background-color:#404040;
     color:white;
@@ -35,9 +36,9 @@ const  ContactForm: React.FC = () => {
     
  h1{
    margin-bottom:4rem;
-   margin-top:5rem;
+   margin-top:4rem;
    font-size:25px;
-   margin-left:10rem;
+   margin-left:7rem;
  }
  
     h3{
@@ -55,13 +56,14 @@ const  ContactForm: React.FC = () => {
 
   h4{
     margin-left:0.1rem;
+    margin-top:0.5rem;
   }
     
   `;
 
   const MiddleSide = styled.div`
-   font-size:10px;
-   margin-top:4rem;
+   font-size:9px;
+   
    font-family:montserrat;
    width:30vw;
    text-align:center;
@@ -69,6 +71,21 @@ const  ContactForm: React.FC = () => {
      text-align:center;
    }
     border-right:1px solid white;
+
+    h3{
+      margin-top:0.5rem;
+    }
+
+    h1{
+      font-size:20px;
+      
+      margin-bottom:2rem;
+      margin-top:6rem;
+      
+    }
+    h2{
+      margin-top:2rem;
+    }
   `;
 
   const UserDetailsBox = styled.div`
@@ -103,7 +120,7 @@ const  ContactForm: React.FC = () => {
   border: none;
   outline:none;
   
-  width:26.5rem;
+  width:25rem;
   border-bottom: 1px solid white;
   border-color:white;
   background-color:#404040;
@@ -192,7 +209,7 @@ const  ContactForm: React.FC = () => {
 
 <h4>Send</h4>
 
-<IoIosArrowDroprightCircle style={{marginLeft:"0.5rem",fontSize:"1.1rem",marginTop:"1rem"}}/>
+
 
 </UserDetailsBox>
 <h2>Privacy policy</h2>
