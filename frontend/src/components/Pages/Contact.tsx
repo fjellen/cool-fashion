@@ -120,7 +120,7 @@ const  ContactForm: React.FC = () => {
   border: none;
   outline:none;
   
-  width:26.5rem;
+  width:25rem;
   border-bottom: 1px solid white;
   border-color:white;
   background-color:#404040;
@@ -209,7 +209,7 @@ const  ContactForm: React.FC = () => {
 
 <h4>Send</h4>
 
-<IoIosArrowDroprightCircle style={{marginLeft:"0.5rem",fontSize:"1.1rem",marginTop:"0.5rem"}}/>
+
 
 </UserDetailsBox>
 <h2>Privacy policy</h2>
