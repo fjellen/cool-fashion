@@ -244,9 +244,9 @@ const Navbar: React.FC = () => {
                 },
               }}
             >
-              {userWishlist!.length > 0 &&
-              userWishlist !== undefined &&
-              userWishlist !== null ? (
+              {userWishlist !== null &&
+              userWishlist!.length > 0 &&
+              userWishlist !== undefined ? (
                 <h3>Here are your wishlist!</h3>
               ) : (
                 <h3>Your wishlist is empty</h3>
@@ -334,9 +334,9 @@ const Navbar: React.FC = () => {
                 },
               }}
             >
-              {userShopping!.length > 0 &&
-              userShopping !== undefined &&
-              userShopping !== null ? (
+              {userShopping !== null &&
+              userShopping!.length > 0 &&
+              userShopping !== undefined ? (
                 <button>Go to Checkout</button>
               ) : (
                 <h3>Nothing in your shopping cart</h3>
