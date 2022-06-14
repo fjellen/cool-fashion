@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "shoppingcarts",
+  "info": {
+    "singularName": "shoppingcart",
+    "pluralName": "shoppingcarts",
+    "displayName": "shoppingcart",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "users_permissions_user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "shoppingcarts"
+    },
+    "title": {
+      "type": "string"
+    },
+    "image": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "price": {
+      "type": "decimal"
+    },
+    "brandLogo": {
+      "type": "string"
+    },
+    "desc": {
+      "type": "richtext"
+    }
+  }
+}

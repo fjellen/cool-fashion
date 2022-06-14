@@ -49,11 +49,6 @@
     "slug": {
       "type": "uid",
       "targetField": "title"
-    },
-    "category": {
-      "type": "component",
-      "repeatable": true,
-      "component": "category.category"
     }
   }
 }
