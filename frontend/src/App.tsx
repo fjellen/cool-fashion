@@ -19,6 +19,8 @@ import Pants from "./components/Pages/Pants";
 import Layout from "./components/Layout.tsx/Layout";
 import Register from "./components/Pages/Register";
 import ProductDetails from "./components/Pages/[slug]";
+import PrivateRoute from "./utils/Privateroute";
+import UnprivateRoute from "./utils/UnprivateRoute";
 
 function App() {
   return (
@@ -38,14 +40,17 @@ function App() {
           <Route path="shoes/:slug" element={<ProductDetails />} />
           <Route path="skateboards" element={<Skateboards />} />
           <Route path="shoes/:slug" element={<ProductDetails />} />
-          <Route path="account" element={<Account />} />
+        
+          <Route path="account" element={<PrivateRoute><Account /> </PrivateRoute>} />
+    
+
           <Route path="tshirts" element={<Tshirts />} />
           <Route path="tshirts/:slug" element={<ProductDetails />} />
           <Route path="hoodies" element={<Hoodies />} />
           <Route path="hoodies/:slug" element={<ProductDetails />} />
           <Route path="pants" element={<Pants />} />
           <Route path="pants/:slug" element={<ProductDetails />} />
-          <Route path="Register" element={<Register />} />
+          <Route path="Register" element={<UnprivateRoute><Register /> </UnprivateRoute>} />
           <Route path="Login" element={<Login />} />
         </Route>
        
