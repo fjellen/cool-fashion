@@ -57,6 +57,7 @@ const LatestProducts = () => {
           }}
           style={{ display: "flex", alignItems: "center" }}
         >
+          {/* 
           <SwiperSlide style={sliderStyle}>
             <Card
               item={null}
@@ -107,6 +108,7 @@ const LatestProducts = () => {
               type="null"
             />
           </SwiperSlide>
+          */}
         </Swiper>
       </Container>
     </Wrapper>

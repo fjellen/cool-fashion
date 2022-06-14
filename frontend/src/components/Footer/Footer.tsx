@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const footer: React.FC = () => {
@@ -52,7 +53,7 @@ const footer: React.FC = () => {
                   <a>FAQ</a>
                 </ListItem>
                 <ListItem>
-                  <a>Contact Us</a>
+                  <Link to="Contact">Contact Us</Link>
                 </ListItem>
                 <ListItem>
                   <a>Help / Support</a>

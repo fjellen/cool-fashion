@@ -3,28 +3,25 @@ import React, { useRef, useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { strapiClient } from "../../utils/strapiClient";
 import { userContext } from "../../context/UserContext";
-import Image from "../Pages/jordan-mcqueen-88XM5Al3AXg-unsplash.jpg"
-
+import Image from "../Pages/jordan-mcqueen-88XM5Al3AXg-unsplash.jpg";
 
 const BackgroundImage = styled.img`
   position: fixed;
   height: 100%;
   width: 100%;
   object-fit: cover;
-  
-  z-index: -1
-`
 
+  z-index: -1;
+`;
 
 const FlexContainer = styled.section`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh
+  height: 100vh;
 `;
 
 const Container = styled.div`
- 
   margin: 1rem;
   padding: 15rem;
   border-radius: 10px;
@@ -37,7 +34,6 @@ const Form = styled.form`
   display: block;
   background-color: white;
 
-  
   padding: 3rem;
   border-radius: 5px;
 `;
@@ -48,11 +44,11 @@ const Input = styled.input`
   margin-bottom: 0.5rem;
   outline: none;
   width: 100%;
- 
+
   padding: 1em;
   border: 1px solid black;
   border-radius: 3px;
-  
+
   ::placeholder {
     color: grey;
     font-size: 1rem;
@@ -74,25 +70,22 @@ const Button = styled.button`
   color: #d3d3d3;
 `;
 
-const FormContainer = styled.div`
-
-`;
+const FormContainer = styled.div``;
 
 const BackgroundHolder = styled.div`
-background-color: white;
-`
+  background-color: white;
+`;
 
 const Logo = styled.div`
-background-color: none; 
-
-`
+  background-color: none;
+`;
 
 const AlreadyAccount = styled.p`
-text-align: center;
-border-top: 1px solid black;
-margin-top: 1rem;
-padding-top: 1rem;
-`
+  text-align: center;
+  border-top: 1px solid black;
+  margin-top: 1rem;
+  padding-top: 1rem;
+`;
 
 const Login = () => {
   const context = useContext(userContext);
@@ -121,38 +114,32 @@ const Login = () => {
       setErrorMsg(err);
     }
   };
-
   return (
     <>
-
-          
-
-    <BackgroundImage src={Image}></BackgroundImage>
+      <BackgroundImage src={Image}></BackgroundImage>
       <FlexContainer>
         <FormContainer>
           <Container>
-            
-          
-          
-
             <Form onSubmit={handleSubmit}>
-            <h2
-              style={{
-                textAlign: "center",
-                
-                fontFamily: "Inherit",
-              }}
-            >
-              Welcome back
-            </h2>
-            <p style={{textAlign: "center"}}>Please login to access your account</p>
+              <h2
+                style={{
+                  textAlign: "center",
+
+                  fontFamily: "Inherit",
+                }}
+              >
+                Welcome back
+              </h2>
+              <p style={{ textAlign: "center" }}>
+                Please login to access your account
+              </p>
               <Input
                 ref={emailRef}
                 type="text"
                 placeholder="Email"
                 name="email"
               />
-             
+
               <Input
                 ref={passwordRef}
                 type="password"
@@ -163,15 +150,13 @@ const Login = () => {
               <Button type="submit">Sign In</Button>
               {errorMsg && <p style={{ color: "#ff0000" }}>{errorMsg}</p>}
 
-            <AlreadyAccount>
-              Dont have an account? <Link  to="/register">Register</Link>
+              <AlreadyAccount>
+                Dont have an account? <Link to="/register">Register</Link>
               </AlreadyAccount>
             </Form>
           </Container>
         </FormContainer>
-       
       </FlexContainer>
-      
     </>
   );
 };

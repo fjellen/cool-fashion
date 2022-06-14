@@ -1,95 +1,157 @@
-import React, { useEffect, useContext } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import styled from "styled-components";
 import { FaRegHeart } from "react-icons/fa";
 import { FaRegUserCircle } from "react-icons/fa";
 import { FaCartArrowDown } from "react-icons/fa";
 import { FaSearch } from "react-icons/fa";
-import { Outlet, Link } from "react-router-dom";
+import { Outlet, Link, useNavigate } from "react-router-dom";
 import { userContext } from "../../context/UserContext";
+import { strapiClientGet } from "../../utils/strapiClient";
+import Modal from "react-modal";
+import AddProducts from "../ShoppingCart/AddProducts";
+import { Z_FIXED } from "zlib";
+import { info } from "console";
+
+type wishlistItem = {
+  id: number;
+  brandLogo: string;
+  desc: string;
+  image: string;
+  price: number;
+  title: string;
+  slug: string;
+};
+
+const LinkStyle = {
+  marginRight: "30px" as "30px",
+  fontSize: "1em" as "1em",
+  justifyContent: "space-between" as "space-between",
+  textDecoration: "none" as "none",
+  color: "black" as "black",
+};
+
+const Container = styled.div`
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  align-items: center;
+  height: 50px;
+  width: 100vw;
+  justify-content: space-between;
+  color: black;
+`;
+
+const Logo = styled.div`
+  margin-right: 10rem;
+  margin-left: 1rem;
+  font-size: 1.3em;
+`;
+
+const Menu = styled.div`
+  display: flex;
+  font-size: 1em;
+  justify-content: center;
+`;
+
+const RightSideSearch = styled.div`
+  height: 50px;
+  width: 20vw;
+  font-size: 1.4em;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+`;
+
+const RightSideDiv = styled.div`
+  height: 50px;
+  width: 20vw;
+  display: flex;
+  text-align: center;
+  color: #000000;
+  margin-right: 2rem;
+`;
+
+const RightSideIconer = styled.div`
+  height: 50px;
+  width: 9vw;
+  color: #000000;
+  font-size: 1.2em;
+  text-align: center;
+  justify-content: space-around;
+  align-items: center;
+  display: flex;
+`;
+
+const StyledInput = styled.input`
+  text-decoration: none;
+  background-color: transparent;
+  outline: none;
+  border: 0;
+  border-bottom: 1px solid red;
+  border-color: #000000;
+  position: relative;
+  padding-left: 0.5rem;
+  color: #000000;
+  ::placeholder {
+    margin-left: 1rem;
+    color: #000000;
+  }
+`;
+
+const StyledIconer = styled.div``;
 
 const Navbar: React.FC = () => {
   const context = useContext(userContext);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [cartIsOpen, setCartIsOpen] = useState<boolean>(false);
+  const [userWishlist, setUserWishlist] = useState<wishlistItem[] | null>(null);
+  const [userShopping, setUserShopping] = useState<wishlistItem[] | null>(null);
+  const navigate = useNavigate();
 
-  const LinkStyle = {
-    marginRight: "30px" as "30px",
-    fontSize: "1em" as "1em",
-    justifyContent: "space-between" as "space-between",
-    textDecoration: "none" as "none",
-    color: "black" as "black",
+  const handleWishlist = () => {
+    if (context?.loggedIn) {
+      const response = strapiClientGet(
+        `/api/users/${context?.loggedInUser?.id}?populate[0]=wishlists`,
+        "GET"
+      );
+      response.then((data) => setUserWishlist(data.wishlists));
+      setIsOpen(true);
+    } else {
+      navigate("/login");
+    }
   };
 
-  const Container = styled.div`
-    display: flex;
-    position: fixed;
-    top: 0;
-    left: 0;
-    align-items: center;
-    height: 50px;
-    width: 100vw;
-    justify-content: space-between;
-    color: black;
-  `;
+  const handleProducts = () => {
+    const response = strapiClientGet(
+      `/api/users/${context?.loggedInUser?.id}?populate[0]=shoppingcarts`,
+      "GET"
+    );
+    response.then((data) => setUserShopping(data.shoppingcarts));
+    setCartIsOpen(true);
+  };
 
-  const Logo = styled.div`
-    margin-right: 10rem;
-    margin-left: 1rem;
-    font-size: 1.3em;
-  `;
+  const handleDelete = (deleteid: number) => {
+    let updateWishlist: wishlistItem[] | null = userWishlist!.filter(
+      (item) => item.id !== deleteid
+    );
+    setUserWishlist(updateWishlist);
+    const response = strapiClientGet(`/api/wishlists/${deleteid}`, "DELETE");
+  };
 
-  const Menu = styled.div`
-    display: flex;
-    font-size: 1em;
-    justify-content: center;
-  `;
+  const handleShoppingDelete = (deleteid: number) => {
+    let updateShopping: wishlistItem[] | null = userShopping!.filter(
+      (item) => item.id !== deleteid
+    );
+    setUserShopping(updateShopping);
+    const response = strapiClientGet(
+      `/api/shoppingcarts/${deleteid}`,
+      "DELETE"
+    );
+  };
 
-  const RightSideSearch = styled.div`
-    height: 50px;
-    width: 20vw;
-    font-size: 1.4em;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-  `;
-
-  const RightSideDiv = styled.div`
-    height: 50px;
-    width: 20vw;
-    display: flex;
-    text-align: center;
-    color: #000000;
-    margin-right: 2rem;
-  `;
-
-  const RightSideIconer = styled.div`
-    height: 50px;
-    width: 9vw;
-    color: #000000;
-    font-size: 1.2em;
-    text-align: center;
-    justify-content: space-around;
-    align-items: center;
-    display: flex;
-  `;
-
-  const StyledInput = styled.input`
-    text-decoration: none;
-    background-color: transparent;
-    outline: none;
-    border: 0;
-    border-bottom: 1px solid red;
-    border-color: #000000;
-    position: relative;
-    padding-left: 0.5rem;
-    color: #000000;
-    ::placeholder {
-      margin-left: 1rem;
-      color: #000000;
-    }
-  `;
-
-  const StyledIconer = styled.div``;
-
+  console.log(userWishlist);
   return (
     <>
       <Container>
@@ -158,16 +220,181 @@ const Navbar: React.FC = () => {
             />
             <StyledInput type="text" placeholder="Search..."></StyledInput>
           </RightSideSearch>
-
           <RightSideIconer>
-            <FaRegHeart />
+            <FaRegHeart
+              style={{ cursor: "pointer" }}
+              onClick={handleWishlist}
+            />
+            <Modal
+              ariaHideApp={false}
+              isOpen={isOpen}
+              onRequestClose={() => setIsOpen(false)}
+              style={{
+                overlay: {
+                  position: "fixed",
+                  top: 0,
+                  right: 0,
+                  backgroundColor: "transparent",
+                },
+                content: {
+                  position: "absolute",
+                  top: "50px",
+                  left: "-1",
+                  width: "700px",
+                },
+              }}
+            >
+              {userWishlist!.length > 0 &&
+              userWishlist !== undefined &&
+              userWishlist !== null ? (
+                <h3>Here are your wishlist!</h3>
+              ) : (
+                <h3>Your wishlist is empty</h3>
+              )}
+              {userWishlist?.map((item, index) => {
+                return (
+                  <React.Fragment>
+                    <div
+                      style={{
+                        display: "flex",
+                        padding: "2rem",
+                        borderBottom: "1px solid #e4e4e4",
+                      }}
+                    >
+                      <img
+                        src={`http://localhost:1337${item.image}`}
+                        height={150}
+                        width={130}
+                        style={{ marginRight: "1rem" }}
+                      />
+
+                      <div>
+                        <div
+                          key={index}
+                          style={{
+                            fontWeight: "bold",
+                            marginBottom: "1rem",
+                          }}
+                        >
+                          {item.title}
+                        </div>
+                        <div
+                          style={{
+                            width: "450px",
+                            height: "130px",
+                            overflow: "hidden",
+                          }}
+                        >
+                          {item.desc}
+                        </div>
+                        <div
+                          style={{
+                            display: "flex",
+                            justifyContent: "flex-end",
+                            marginTop: "1rem",
+                          }}
+                        >
+                          <button onClick={() => handleDelete(item.id)}>
+                            DELETE
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </React.Fragment>
+                );
+              })}
+            </Modal>
+
             <Link
               to={context?.loggedIn ? "Account" : "Login"}
               style={{ color: "black" }}
             >
               <FaRegUserCircle />
             </Link>
-            <FaCartArrowDown />
+            <FaCartArrowDown
+              style={{ cursor: "pointer" }}
+              onClick={handleProducts}
+            />
+            <Modal
+              ariaHideApp={false}
+              isOpen={cartIsOpen}
+              onRequestClose={() => setCartIsOpen(false)}
+              style={{
+                overlay: {
+                  position: "fixed",
+                  top: 0,
+                  right: 0,
+                  backgroundColor: "transparent",
+                },
+                content: {
+                  position: "absolute",
+                  top: "50px",
+                  left: "-1",
+                  width: "700px",
+                },
+              }}
+            >
+              {userShopping!.length > 0 &&
+              userShopping !== undefined &&
+              userShopping !== null ? (
+                <button>Go to Checkout</button>
+              ) : (
+                <h3>Nothing in your shopping cart</h3>
+              )}
+
+              {userShopping?.map((item, index) => {
+                return (
+                  <React.Fragment>
+                    <div
+                      style={{
+                        display: "flex",
+                        padding: "2rem",
+                        borderBottom: "1px solid #e4e4e4",
+                      }}
+                    >
+                      <img
+                        src={`http://localhost:1337${item.image}`}
+                        height={150}
+                        width={130}
+                        style={{ marginRight: "1rem" }}
+                      />
+
+                      <div>
+                        <div
+                          key={index}
+                          style={{
+                            fontWeight: "bold",
+                            marginBottom: "1rem",
+                          }}
+                        >
+                          {item.title}
+                        </div>
+                        <div
+                          style={{
+                            width: "450px",
+                            height: "130px",
+                            overflow: "hidden",
+                          }}
+                        >
+                          {item.desc}
+                        </div>
+                        <div
+                          style={{
+                            display: "flex",
+                            justifyContent: "flex-end",
+                            marginTop: "1rem",
+                          }}
+                        >
+                          <button onClick={() => handleShoppingDelete(item.id)}>
+                            DELETE
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </React.Fragment>
+                );
+              })}
+            </Modal>
           </RightSideIconer>
         </RightSideDiv>
       </Container>
